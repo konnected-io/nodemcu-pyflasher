@@ -17,26 +17,25 @@ class AboutDlg(wx.Dialog):
 <html>
 <body bgcolor="#DCDCDC" style="font-family: Arial; background-color: #DCDCDC;">
 <center>
-    <img src="{0}/images/python-64.png" width="64" height="64" alt="Python">
-    <img src="{0}/images/icon-64.png" width="64" height="64" alt="NodeMCU">
-    <img src="{0}/images/espressif-64.png" width="64" height="64" alt="Espressif, producers of ESP8266 et.al.">
-    <img src="{0}/images/wxpython-64.png" width="64" height="43" alt="wxPython, cross-platform GUI framework">
+    <img src="{0}/images/konnected-blue.png" width="292" height="55" alt="Konnected">
 
-    <h1>NodeMCU PyFlasher</h1>
+    <h1>Konnected Flash Tool</h1>
+    <h3>based on NodeMCU PyFlasher</h3>
+    <h4>by Marcel St&ouml;r</h4>
 
     <p>Version {1}</p>
 
-    <p>Fork the <a style="color: #004CE5;" href="https://github.com/marcelstoer/nodemcu-pyflasher">project on
-    GitHub</a> and help improve it for all!</p>
+    <p>Original NodeMCU PyFlasher <a style="color: #004CE5;" href="https://github.com/marcelstoer/nodemcu-pyflasher">project on
+    GitHub</a>.</p>
 
-    <p>
-    As with everything I offer for free, this is donation-ware.
-    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HFN4ZMET5XS2Q">
-    <img src="{0}/images/paypal-256.png" width="256" height="88" alt="Donate with PayPal">
-    </a>
-    </p>
+    <p>This application was built from the <a style="color: #004CE5;" href="https://github.com/konnected-io/nodemcu-pyflasher">Konnected
+    fork</a> on GitHub.</p>
+    
+    <p>For help and support, please visit <a style="color: #004CE5;" href="https://help.konnected.io">help.konnected.io</a>.
 
-    <p>&copy; 2018 Marcel St&ouml;r. Licensed under MIT.</p>
+    <p>Original work &copy; 2018 Marcel St&ouml;r.<br/>
+    Modifications &copy; 2018 Konnected, Inc<br/>
+    Open source under the MIT license.</p>
 
     <p>
         <wxp module="wx" class="Button">
@@ -50,7 +49,7 @@ class AboutDlg(wx.Dialog):
 '''
 
     def __init__(self, parent):
-        wx.Dialog.__init__(self, parent, wx.ID_ANY, "About NodeMCU PyFlasher")
+        wx.Dialog.__init__(self, parent, wx.ID_ANY, "About Konnected Flash Tool")
         html = HtmlWindow(self, wx.ID_ANY, size=(420, -1))
         if "gtk2" in wx.PlatformInfo or "gtk3" in wx.PlatformInfo:
             html.SetStandardFonts()

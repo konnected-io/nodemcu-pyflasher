@@ -18,7 +18,7 @@ from esptool import ESPLoader
 from esptool import NotImplementedInROMError
 from argparse import Namespace
 
-__version__ = "3.0"
+__version__ = "3.1"
 __supported_baud_rates__ = [9600, 57600, 74880, 115200, 230400, 460800, 921600]
 
 # ---------------------------------------------------------------------------
@@ -87,7 +87,7 @@ class FlashingThread(threading.Thread):
             esp.flash_set_parameters(esptool.flash_size_bytes(args.flash_size))
 
             filesystem_filename = self._config.filesystem_path.split("/")[-1]
-            filesystem_addr = re.search(r'0x\w{5}', filesystem_filename).group()
+            filesystem_addr = re.search(r'0x\w{5,6}', filesystem_filename).group()
 
             if self._config.erase_before_flash:
                 esptool.erase_flash(esp, args)
@@ -324,7 +324,7 @@ class NodeMcuFlasher(wx.Frame):
     def _build_status_bar(self):
         self.statusBar = self.CreateStatusBar(2, wx.STB_SIZEGRIP)
         self.statusBar.SetStatusWidths([-2, -1])
-        status_text = "Thank you for supporting Konnected"
+        status_text = "Version {}".format(__version__)
         self.statusBar.SetStatusText(status_text, 0)
 
     def _build_menu_bar(self):
